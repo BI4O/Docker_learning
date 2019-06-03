@@ -90,6 +90,10 @@ image，镜像，是一个个配置好的环境。 container，容器，是image
    另外全框架版还有jupyter notebook版的镜像，注意python和cuda版本（根据显卡来定）
 
    `docker pull ufoym/deepo:all-jupyter-py36-cu100`
+   
+   如果你手上有直接的安装包也就是哪个rar结尾文件，那么你可以先cd到安装包所在的文件夹，然后
+   
+   `docker load -i xxxx.rar`
 
    然后通过命令来查看你安装好的镜像
 
@@ -97,7 +101,7 @@ image，镜像，是一个个配置好的环境。 container，容器，是image
 
    
 
-### 安装完成，开始Docker操作
+## 安装完成，开始Docker操作
 
 1. ##### 容器的创建/查看/删除
 
@@ -148,7 +152,8 @@ image，镜像，是一个个配置好的环境。 container，容器，是image
    其中：
 
    - `-it`为直接进入交互式 
-   - `-p 7777:8888`是把主机的7777端口映射到容器的8888端口 -`-ipc=host`可以让容器与主机共享内存 - 
+   - `-p 7777:8888`是把主机的7777端口映射到容器的8888端口 
+   - `-ipc=host`可以让容器与主机共享内存 - 
    - 还可以加一个`--name xxxxx`给容器定义一个个性化名字 
    -  `-v /home/shcd/Documents/gby:/gby`可以将主机上的/home/shcd/Documents/gby地址挂载到容器里，并命名为/data文件夹，这样这个文件夹的内容可以在容器和主机之间共享了。因为容器一旦关闭，容器中的所有改动都会清除，所以这样挂载一个地址可以吧容器内的数据保存到本地。 - `90be7604e476`则是你安装的jupyter镜像的id，可以在刚刚docker images命令后面查看，当然你也可以直接写全名`ufoym/deepo:all-py36-jupyter`
 
